@@ -1,0 +1,11 @@
+{
+  "name": "web-storage",
+  "title": "Almacenamiento web",
+  "category": "guides",
+  "kind": "guide",
+  "description": "Cookies, localStorage, sessionStorage e IndexedDB: qué guardar en cada uno, límites y riesgos de seguridad.",
+  "status": "stable",
+  "source": "ShortCuts: LocalStorage.js (notas sobre cookies y localStorage)",
+  "dependencies": [],
+  "tags": ["storage", "cookies", "security", "browser"]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "excel-date",
+  "title": "Fechas de Excel",
+  "category": "lib",
+  "description": "Convierte números de serie de Excel a fechas (y viceversa) sin desfases de zona horaria ni del año bisiesto fantasma de 1900.",
+  "status": "stable",
+  "source": "ShortCuts: parseExcelDate.js (getJsDateFromCSV)",
+  "dependencies": [],
+  "tags": ["date", "excel", "csv", "import", "utc"]
+}

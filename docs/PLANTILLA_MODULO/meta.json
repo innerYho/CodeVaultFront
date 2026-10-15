@@ -1,0 +1,10 @@
+{
+  "name": "mi-modulo",
+  "title": "Mi Módulo",
+  "category": "ui",
+  "description": "Una frase que diga qué hace.",
+  "status": "experimental",
+  "source": "",
+  "dependencies": ["react"],
+  "tags": []
+}

@@ -1,0 +1,271 @@
+[
+  {
+    "name": "AlertButtonProps",
+    "props": [
+      {
+        "name": "client",
+        "type": "TelegramAlertsClient",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Contenido del botón (ícono o texto). Por defecto «Alerta»."
+      },
+      {
+        "name": "allowNote",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Permite escribir una nota opcional (hasta 200 caracteres) que viaja en la alerta."
+      },
+      {
+        "name": "onFinished",
+        "type": "((kind: \"success\" | \"partial\" | \"failed\" | \"nobody\" | \"error\") => void)",
+        "required": false,
+        "description": "Se llama con el tipo de resultado verificado cuando termina el envío (para registrar métricas, etc.)."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "AlertEvent",
+    "props": [
+      {
+        "name": "type",
+        "type": "\"open\" | \"cancel\" | \"send\" | \"finished\" | \"close\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "AlertPhase",
+    "props": [
+      {
+        "name": "phase",
+        "type": "\"idle\" | \"confirming\" | \"sending\" | \"done\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "LinkInfo",
+    "props": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": true,
+        "description": "Enlace `t.me/bot?start=código`, de un solo uso."
+      },
+      {
+        "name": "expiresAt",
+        "type": "string",
+        "required": true,
+        "description": "Instante ISO en que caduca."
+      }
+    ]
+  },
+  {
+    "name": "LinkState",
+    "props": [
+      {
+        "name": "phase",
+        "type": "\"error\" | \"idle\" | \"loading\" | \"disabled\" | \"creating\" | \"waiting\" | \"expired\" | \"linked\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "LinkStatus",
+    "props": [
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": true,
+        "description": "`false` si el servidor no tiene token del bot: no se puede vincular ni avisar."
+      },
+      {
+        "name": "linked",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "username",
+        "type": "string | null",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "linkedAt",
+        "type": "string | null",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "LinkWizardProps",
+    "props": [
+      {
+        "name": "client",
+        "type": "TelegramAlertsClient",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "pollMs",
+        "type": "number",
+        "required": false,
+        "default": "2500",
+        "description": "Cada cuánto se verifica si la persona ya pulsó «Iniciar» en Telegram."
+      },
+      {
+        "name": "maxPollFailures",
+        "type": "number",
+        "required": false,
+        "default": "4",
+        "description": "Fallos de red seguidos tolerados mientras se espera, antes de rendirse."
+      }
+    ]
+  },
+  {
+    "name": "NotifyReport",
+    "props": [
+      {
+        "name": "delivered",
+        "type": "number",
+        "required": true,
+        "description": "Mensajes entregados por Telegram."
+      },
+      {
+        "name": "failed",
+        "type": "number",
+        "required": true,
+        "description": "Cuentas con Telegram vinculado a las que no se pudo entregar."
+      },
+      {
+        "name": "notLinked",
+        "type": "number",
+        "required": true,
+        "description": "Cuentas que no tienen Telegram vinculado."
+      }
+    ]
+  },
+  {
+    "name": "Outcome",
+    "props": [
+      {
+        "name": "kind",
+        "type": "OutcomeKind",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "TelegramAlertsClient",
+    "props": [
+      {
+        "name": "status",
+        "type": "() => Promise<LinkStatus>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "createLink",
+        "type": "() => Promise<LinkInfo>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "unlink",
+        "type": "() => Promise<void>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "sendTest",
+        "type": "() => Promise<NotifyReport>",
+        "required": true,
+        "description": "Mensaje de prueba a la propia cuenta."
+      },
+      {
+        "name": "sendAlert",
+        "type": "(note?: string) => Promise<NotifyReport>",
+        "required": true,
+        "description": "Alerta a los destinatarios. `note` opcional, hasta 200 caracteres."
+      }
+    ]
+  },
+  {
+    "name": "TelegramClientOptions",
+    "props": [
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "default": "\"/telegram\"",
+        "description": "Prefijo de las rutas."
+      },
+      {
+        "name": "fetch",
+        "type": "{ (input: RequestInfo | URL, init?: RequestInit): Promise<Response>; (input: string | URL | Request, init?: RequestInit): Promise<Response>; }",
+        "required": false,
+        "description": "Para pruebas o para usar otro `fetch`."
+      }
+    ]
+  },
+  {
+    "name": "TestState",
+    "props": [
+      {
+        "name": "kind",
+        "type": "\"idle\" | \"sending\" | \"result\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "UseLinkFlowOptions",
+    "props": [
+      {
+        "name": "pollMs",
+        "type": "number",
+        "required": false,
+        "default": "2500",
+        "description": "Cada cuánto se verifica si la persona ya pulsó «Iniciar» en Telegram."
+      },
+      {
+        "name": "maxPollFailures",
+        "type": "number",
+        "required": false,
+        "default": "4",
+        "description": "Fallos de red seguidos tolerados mientras se espera, antes de rendirse."
+      }
+    ]
+  }
+]

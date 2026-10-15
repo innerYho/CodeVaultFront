@@ -1,0 +1,31 @@
+[
+  {
+    "name": "LocalTimeOptions",
+    "props": [
+      {
+        "name": "locale",
+        "type": "string",
+        "required": false,
+        "description": "Idioma de formato. Por defecto el del navegador."
+      },
+      {
+        "name": "timeZone",
+        "type": "string",
+        "required": false,
+        "description": "Zona IANA (`America/Bogota`). Por defecto la del dispositivo."
+      },
+      {
+        "name": "withDate",
+        "type": "boolean",
+        "required": false,
+        "description": "Añade la fecha antes de la hora."
+      },
+      {
+        "name": "withZone",
+        "type": "boolean",
+        "required": false,
+        "description": "Muestra la zona (`GMT-5`). Por defecto `true`."
+      }
+    ]
+  }
+]

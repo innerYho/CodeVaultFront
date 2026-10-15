@@ -1,0 +1,10 @@
+{
+  "name": "otp-input",
+  "title": "OTP Input",
+  "category": "ui",
+  "description": "Campo de código de un solo uso con casillas, pegado, autocompletado del SO y teclado completo.",
+  "status": "stable",
+  "source": "Hydra: Validate2FA.jsx / Setup2FA.jsx (rediseñado para códigos TOTP)",
+  "dependencies": ["react"],
+  "tags": ["otp", "2fa", "input", "a11y"]
+}

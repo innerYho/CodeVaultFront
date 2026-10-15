@@ -1,0 +1,80 @@
+[
+  {
+    "name": "FabAction",
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "onSelect",
+        "type": "() => void",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "FloatingActionButtonProps",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Texto accesible del botón principal."
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "badge",
+        "type": "number",
+        "required": false,
+        "description": "Contador sobre el botón. 0 o undefined lo oculta; se muestra \"99+\" desde 100."
+      },
+      {
+        "name": "actions",
+        "type": "FabAction[]",
+        "required": false,
+        "description": "Si se define, el botón abre un panel con estas acciones; si no, llama a `onClick`."
+      },
+      {
+        "name": "onClick",
+        "type": "(() => void)",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "position",
+        "type": "\"bottom-right\" | \"bottom-left\"",
+        "required": false,
+        "default": "\"bottom-right\"",
+        "description": "Esquina de la pantalla donde se ancla."
+      },
+      {
+        "name": "tone",
+        "type": "\"neutral\" | \"danger\"",
+        "required": false,
+        "default": "\"neutral\"",
+        "description": "Cambia el color del badge (p. ej. \"danger\" para pendientes urgentes)."
+      }
+    ]
+  }
+]

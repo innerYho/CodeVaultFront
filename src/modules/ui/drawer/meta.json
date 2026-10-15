@@ -1,0 +1,10 @@
+{
+  "name": "drawer",
+  "title": "Drawer",
+  "category": "ui",
+  "description": "Panel lateral modal sobre dialog nativo: foco atrapado, Escape y cierre por fondo.",
+  "status": "stable",
+  "source": "Hydra/Heimdall: SidebarDropdown y menús laterales sin versión móvil",
+  "dependencies": ["react", "motion"],
+  "tags": ["drawer", "dialog", "mobile", "a11y"]
+}

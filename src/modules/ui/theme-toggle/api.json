@@ -1,0 +1,43 @@
+[
+  {
+    "name": "ThemeToggleProps",
+    "props": [
+      {
+        "name": "circularReveal",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Anima la transición como círculo desde el botón (View Transitions API)."
+      }
+    ]
+  },
+  {
+    "name": "UseTheme",
+    "props": [
+      {
+        "name": "mode",
+        "type": "ThemeMode",
+        "required": true,
+        "description": "Preferencia elegida: \"light\", \"dark\" o \"system\"."
+      },
+      {
+        "name": "resolved",
+        "type": "ResolvedTheme",
+        "required": true,
+        "description": "Tema efectivo tras resolver \"system\"."
+      },
+      {
+        "name": "setMode",
+        "type": "(mode: ThemeMode) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "toggle",
+        "type": "(origin?: import(\"/home/tecnologia/Documentos/yh/CodeVault/CodeVaultFront/src/modules/ui/theme-toggle/theme-store\").ToggleOrigin) => void",
+        "required": true,
+        "description": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "name": "ToastOptions",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "kind",
+        "type": "ToastKind",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "description": "Milisegundos visible. `0` lo deja fijo hasta cerrarlo (recomendado para errores). Por defecto 4000."
+      }
+    ]
+  }
+]

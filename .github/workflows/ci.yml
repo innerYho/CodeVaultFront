@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4 # toma la versión de "packageManager" en package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm validate
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      # INDEX.md y los api.json se generan: si alguien olvidó regenerarlos, el CI falla.
+      - name: Archivos generados al día
+        run: |
+          pnpm api
+          pnpm index
+          git diff --exit-code
+      - run: pnpm build

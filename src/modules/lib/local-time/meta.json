@@ -1,0 +1,10 @@
+{
+  "name": "local-time",
+  "title": "Hora local",
+  "category": "lib",
+  "description": "Muestra un instante en la zona horaria de quien lo mira, con Intl, sin diccionarios de zonas ni cálculos de desfase a mano.",
+  "status": "stable",
+  "source": "ShortCuts: timezone.js (getTimezoneOffset + diccionario GMT)",
+  "dependencies": [],
+  "tags": ["date", "timezone", "intl", "i18n"]
+}

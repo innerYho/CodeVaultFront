@@ -1,0 +1,11 @@
+{
+  "name": "image-transition",
+  "title": "Transición de imágenes",
+  "category": "ui",
+  "description": "Galería con seis transiciones por capas (fundido, cortina, círculo, zoom, persianas, deslizar), zoom lento y reproducción automática accesible.",
+  "status": "stable",
+  "source": "Nuevo: no existía en Hydra/Heimdall",
+  "dependencies": ["react", "motion"],
+  "tags": ["image", "carousel", "transition", "clip-path", "animation", "a11y"],
+  "demoFiles": ["landscapes.ts"]
+}

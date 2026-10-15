@@ -1,0 +1,10 @@
+{
+  "name": "tailwind",
+  "title": "Tailwind CSS 4",
+  "category": "guides",
+  "kind": "guide",
+  "description": "CSS utilitario con configuración en CSS, variantes y modo oscuro por clase.",
+  "status": "stable",
+  "dependencies": ["tailwindcss", "@tailwindcss/vite"],
+  "tags": ["css", "design-system"]
+}

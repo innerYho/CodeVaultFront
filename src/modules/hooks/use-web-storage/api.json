@@ -1,0 +1,19 @@
+[
+  {
+    "name": "UseWebStorageOptions",
+    "props": [
+      {
+        "name": "serialize",
+        "type": "((value: T) => string)",
+        "required": false,
+        "description": "Convierte el valor a texto. Por defecto `JSON.stringify`."
+      },
+      {
+        "name": "deserialize",
+        "type": "((raw: string) => T)",
+        "required": false,
+        "description": "Convierte el texto a valor; si lanza, se usa el valor inicial. Por defecto `JSON.parse`."
+      }
+    ]
+  }
+]

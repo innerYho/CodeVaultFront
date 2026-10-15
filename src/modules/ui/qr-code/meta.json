@@ -1,0 +1,10 @@
+{
+  "name": "qr-code",
+  "title": "QR Code",
+  "category": "ui",
+  "description": "Código QR como un único SVG, generado en el navegador (el contenido nunca sale a un servicio externo).",
+  "status": "stable",
+  "source": "CodeVault: extraído de auth/login-2fa para reutilizarlo",
+  "dependencies": ["react", "uqr"],
+  "tags": ["qr", "svg", "a11y"]
+}

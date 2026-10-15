@@ -1,0 +1,10 @@
+{
+  "name": "numeric-input",
+  "title": "Numeric Input",
+  "category": "ui",
+  "description": "Campo que solo admite dígitos (o un decimal): limpia el texto pegado, teclado numérico en móvil y etiqueta/ayuda accesibles.",
+  "status": "stable",
+  "source": "ShortCuts: inputNumberConText.jsx y jsx.jsx (pattern=[0-9]* + validity)",
+  "dependencies": ["react"],
+  "tags": ["form", "input", "validation", "a11y"]
+}

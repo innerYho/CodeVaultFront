@@ -1,0 +1,11 @@
+{
+  "name": "login-2fa",
+  "title": "Login con 2FA",
+  "category": "auth",
+  "description": "Flujo de login en dos pasos (contraseña + código TOTP o de recuperación) y asistente de activación con QR.",
+  "status": "beta",
+  "source": "Hydra: Login.jsx, Setup2FA.jsx, Validate2FA.jsx (rediseñado con TOTP)",
+  "dependencies": ["react", "motion", "ui/qr-code", "ui/otp-input"],
+  "tags": ["auth", "2fa", "totp", "forms", "a11y", "state-machine"],
+  "demoFiles": ["mock-client.ts"]
+}

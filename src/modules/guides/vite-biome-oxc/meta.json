@@ -1,0 +1,10 @@
+{
+  "name": "vite-biome-oxc",
+  "title": "Vite, Biome y oxc",
+  "category": "guides",
+  "kind": "guide",
+  "description": "Qué hace cada herramienta del stack (bundler, lint/formato, transpilador) y por qué no compiten entre sí.",
+  "status": "stable",
+  "dependencies": ["vite", "@biomejs/biome"],
+  "tags": ["tooling", "build"]
+}

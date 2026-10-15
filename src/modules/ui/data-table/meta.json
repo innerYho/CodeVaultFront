@@ -1,0 +1,10 @@
+{
+  "name": "data-table",
+  "title": "Data Table",
+  "category": "ui",
+  "description": "Tabla con ordenación y paginación accesibles, estado vacío y utilidades sueltas (usePagination, Pagination, getPageRange).",
+  "status": "stable",
+  "source": "ShortCuts: pagination.jsx (react-paginate + moment)",
+  "dependencies": ["react"],
+  "tags": ["table", "pagination", "sorting", "a11y"]
+}

@@ -1,0 +1,161 @@
+[
+  {
+    "name": "ParallaxSceneProps",
+    "props": [
+      {
+        "name": "layers",
+        "type": "SceneLayer[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Contenido fijo sobre todas las capas (títulos, botones). No se mueve."
+      },
+      {
+        "name": "scrollDistance",
+        "type": "number",
+        "required": false,
+        "default": "90",
+        "description": "Recorrido vertical máximo por scroll, en píxeles (las capas lejanas y cercanas van en sentidos opuestos)."
+      },
+      {
+        "name": "pointerStrength",
+        "type": "number",
+        "required": false,
+        "default": "36",
+        "description": "Desplazamiento máximo por el ratón, en píxeles, de la capa más cercana. 0 lo desactiva."
+      },
+      {
+        "name": "bleed",
+        "type": "number",
+        "required": false,
+        "default": "8",
+        "description": "Margen extra de cada capa, en % del contenedor, para que no asomen los bordes al moverse."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Fondo y tamaño del contenedor."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Descripción para lectores de pantalla; si no se da, la escena se marca como decorativa."
+      }
+    ]
+  },
+  {
+    "name": "PinesProps",
+    "props": [
+      {
+        "name": "seed",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "count",
+        "type": "number",
+        "required": false,
+        "default": "28",
+        "description": "Cantidad de árboles."
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "RidgeProps",
+    "props": [
+      {
+        "name": "seed",
+        "type": "number",
+        "required": false,
+        "default": "1",
+        "description": "Semilla: misma semilla, misma silueta."
+      },
+      {
+        "name": "color",
+        "type": "string",
+        "required": true,
+        "description": "Color de la base de la montaña."
+      },
+      {
+        "name": "topColor",
+        "type": "string",
+        "required": false,
+        "description": "Color de las cumbres (degradado vertical). Por defecto, el mismo que `color`."
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "default": "0.6",
+        "description": "Altura máxima como fracción del alto disponible (0 a 1)."
+      },
+      {
+        "name": "roughness",
+        "type": "number",
+        "required": false,
+        "default": "0.55",
+        "description": "Aspereza: 0.3 suave, 0.7 escarpada."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "SceneLayer",
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "depth",
+        "type": "number",
+        "required": true,
+        "description": "Profundidad de 0 (fondo lejano) a 1 (primer plano). Las cercanas se mueven más."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "top",
+        "type": "string",
+        "required": false,
+        "description": "Borde superior de la capa dentro de la escena (p. ej. `\"40%\"`). Por defecto ocupa toda la altura.\nÚsalo en lugar de una clase `top-*`: el margen extra de la capa se aplica con estilos en línea."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  }
+]

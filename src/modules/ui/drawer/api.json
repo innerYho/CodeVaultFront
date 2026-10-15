@@ -1,0 +1,45 @@
+[
+  {
+    "name": "DrawerProps",
+    "props": [
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Nombre accesible del panel (p. ej. \"Menú de navegación\")."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "side",
+        "type": "\"left\" | \"right\"",
+        "required": false,
+        "default": "\"left\"",
+        "description": "Borde del que sale el panel."
+      },
+      {
+        "name": "width",
+        "type": "string",
+        "required": false,
+        "default": "\"18rem\"",
+        "description": "Ancho del panel."
+      }
+    ]
+  }
+]

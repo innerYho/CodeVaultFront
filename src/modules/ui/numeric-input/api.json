@@ -1,0 +1,66 @@
+[
+  {
+    "name": "NumericInputProps",
+    "props": [
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Etiqueta visible, asociada al campo."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Valor actual como texto (se conservan ceros a la izquierda: documentos, teléfonos)."
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": "Se llama con el texto ya limpio."
+      },
+      {
+        "name": "hint",
+        "type": "string",
+        "required": false,
+        "description": "Texto de ayuda o de error, enlazado con `aria-describedby`."
+      },
+      {
+        "name": "invalid",
+        "type": "boolean",
+        "required": false,
+        "description": "Marca el campo como inválido."
+      },
+      {
+        "name": "decimal",
+        "type": "boolean",
+        "required": false,
+        "description": "Permite un separador decimal (`.` o `,`, se normaliza a `.`)."
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": "Longitud máxima del resultado."
+      }
+    ]
+  },
+  {
+    "name": "SanitizeOptions",
+    "props": [
+      {
+        "name": "decimal",
+        "type": "boolean",
+        "required": false,
+        "description": "Permite un separador decimal (`.` o `,`, se normaliza a `.`)."
+      },
+      {
+        "name": "maxLength",
+        "type": "number",
+        "required": false,
+        "description": "Longitud máxima del resultado."
+      }
+    ]
+  }
+]

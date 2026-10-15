@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Hotkey",
+    "props": [
+      {
+        "name": "key",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "mod",
+        "type": "boolean",
+        "required": true,
+        "description": "Cmd en macOS, Ctrl en el resto."
+      },
+      {
+        "name": "shift",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "UseHotkeyOptions",
+    "props": [
+      {
+        "name": "enabled",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": ""
+      },
+      {
+        "name": "allowInInputs",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Dispara también al escribir en un campo de texto. Los atajos con `mod` ya lo hacen; los de una sola tecla (p. ej. \"/\") no, salvo que lo actives."
+      },
+      {
+        "name": "preventDefault",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": ""
+      }
+    ]
+  }
+]

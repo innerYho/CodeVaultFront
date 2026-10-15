@@ -1,0 +1,10 @@
+{
+  "name": "parallax",
+  "title": "Parallax con scroll",
+  "category": "ui",
+  "description": "Efecto parallax ligado al scroll: capas que se mueven a distinta velocidad, con muelle opcional y movimiento reducido.",
+  "status": "stable",
+  "source": "Nuevo: no existía en Hydra/Heimdall",
+  "dependencies": ["react", "motion"],
+  "tags": ["parallax", "scroll", "animation", "motion", "a11y"]
+}

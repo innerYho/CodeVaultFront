@@ -1,0 +1,186 @@
+[
+  {
+    "name": "AuthClient",
+    "props": [
+      {
+        "name": "login",
+        "type": "(email: string, password: string) => Promise<LoginResult>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "verifyMfa",
+        "type": "(challenge: string, proof: MfaProof) => Promise<AuthUser>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "beginMfaSetup",
+        "type": "() => Promise<MfaSetupData>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "enableMfa",
+        "type": "(code: string) => Promise<{ recoveryCodes: string[]; }>",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "AuthClientOptions",
+    "props": [
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "default": "\"/auth\"",
+        "description": "Prefijo de las rutas de autenticación."
+      },
+      {
+        "name": "fetch",
+        "type": "{ (input: RequestInfo | URL, init?: RequestInit): Promise<Response>; (input: string | URL | Request, init?: RequestInit): Promise<Response>; }",
+        "required": false,
+        "description": "Para pruebas o para usar otro `fetch`."
+      }
+    ]
+  },
+  {
+    "name": "AuthUser",
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "Login2FAProps",
+    "props": [
+      {
+        "name": "client",
+        "type": "AuthClient",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onAuthenticated",
+        "type": "(user: AuthUser) => void",
+        "required": true,
+        "description": "Se llama al terminar el login (con o sin 2FA)."
+      },
+      {
+        "name": "messages",
+        "type": "Messages",
+        "required": false,
+        "description": "Sobrescribe textos de error por código (`invalid_code`, `locked`...)."
+      }
+    ]
+  },
+  {
+    "name": "LoginFormProps",
+    "props": [
+      {
+        "name": "onSubmit",
+        "type": "(email: string, password: string) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "pending",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "error",
+        "type": "string | null",
+        "required": false,
+        "description": "Mensaje de error ya traducido; se anuncia a lectores de pantalla."
+      }
+    ]
+  },
+  {
+    "name": "LoginResult",
+    "props": [
+      {
+        "name": "status",
+        "type": "\"authenticated\" | \"mfa_required\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "MfaChallengeProps",
+    "props": [
+      {
+        "name": "onSubmit",
+        "type": "(proof: MfaProof) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onBack",
+        "type": "(() => void)",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "pending",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "error",
+        "type": "string | null",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "MfaSetupData",
+    "props": [
+      {
+        "name": "secret",
+        "type": "string",
+        "required": true,
+        "description": "Secreto en base32, para quien no pueda escanear el QR."
+      },
+      {
+        "name": "otpauthUri",
+        "type": "string",
+        "required": true,
+        "description": "URI `otpauth://` que se codifica en el QR."
+      }
+    ]
+  },
+  {
+    "name": "MfaSetupProps",
+    "props": [
+      {
+        "name": "client",
+        "type": "AuthClient",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onDone",
+        "type": "() => void",
+        "required": true,
+        "description": "Se llama cuando el usuario confirma que guardó los códigos de recuperación."
+      }
+    ]
+  }
+]

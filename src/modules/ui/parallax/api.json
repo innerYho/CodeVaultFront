@@ -1,0 +1,52 @@
+[
+  {
+    "name": "ParallaxProps",
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "distance",
+        "type": "number",
+        "required": false,
+        "default": "80",
+        "description": "Recorrido máximo en píxeles. Positivo: capa lejana (se mueve más lento que el scroll).\nNegativo: capa cercana (más rápida). 0 desactiva el efecto."
+      },
+      {
+        "name": "axis",
+        "type": "\"x\" | \"y\"",
+        "required": false,
+        "default": "\"y\"",
+        "description": "Eje del movimiento."
+      },
+      {
+        "name": "smooth",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Añade inercia con un muelle."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "UseParallaxOptions",
+    "props": [
+      {
+        "name": "smooth",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Suaviza el movimiento con un muelle (añade un poco de inercia)."
+      }
+    ]
+  }
+]

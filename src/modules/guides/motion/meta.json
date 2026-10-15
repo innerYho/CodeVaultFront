@@ -1,0 +1,10 @@
+{
+  "name": "motion",
+  "title": "Motion (Framer Motion)",
+  "category": "guides",
+  "kind": "guide",
+  "description": "Librería de animación para React: gestos, layout, salidas y resortes con una API declarativa.",
+  "status": "stable",
+  "dependencies": ["motion"],
+  "tags": ["animation", "react"]
+}

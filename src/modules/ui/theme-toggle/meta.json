@@ -1,0 +1,10 @@
+{
+  "name": "theme-toggle",
+  "title": "Theme Toggle",
+  "category": "ui",
+  "description": "Botón día/noche con modo sistema, persistencia, sin destello inicial y transición circular.",
+  "status": "stable",
+  "source": "Hydra: ThemeContext.jsx + botón de ObamaDashboard.jsx",
+  "dependencies": ["react", "motion"],
+  "tags": ["theme", "dark-mode", "animation", "a11y"]
+}

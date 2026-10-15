@@ -1,0 +1,10 @@
+{
+  "name": "parallax-scene",
+  "title": "Escena de capas",
+  "category": "ui",
+  "description": "Escena con profundidad: capas que reaccionan al scroll y al ratón según su distancia, más siluetas de montañas y pinos generadas por código.",
+  "status": "stable",
+  "source": "Nuevo: no existía en Hydra/Heimdall",
+  "dependencies": ["react", "motion", "ui/parallax"],
+  "tags": ["parallax", "layers", "svg", "generative", "pointer", "animation"]
+}

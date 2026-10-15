@@ -1,0 +1,10 @@
+{
+  "name": "use-web-storage",
+  "title": "useLocalStorage y useSessionStorage",
+  "category": "hooks",
+  "description": "Estado persistido en localStorage (entre sesiones) o sessionStorage (por pestaña), sincronizado entre componentes, tolerante a fallos y compatible con SSR.",
+  "status": "stable",
+  "source": "ShortCuts: LocalStorage.js (getItem/setItem sueltos con alert)",
+  "dependencies": ["react"],
+  "tags": ["storage", "sessionStorage", "state", "hook", "persistence"]
+}

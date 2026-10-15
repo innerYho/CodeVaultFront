@@ -1,0 +1,11 @@
+{
+  "name": "telegram-alerts",
+  "title": "Alertas por Telegram",
+  "category": "notify",
+  "description": "Botón de alerta urgente con confirmación, envío y verificación del resultado real, y asistente paso a paso para vincular Telegram.",
+  "status": "beta",
+  "source": "Hydra: components/shared/AlertaPRA.jsx y Documentacion/ALERTA_PRA.md",
+  "dependencies": ["react", "ui/qr-code"],
+  "tags": ["telegram", "alerts", "notifications", "wizard", "a11y", "state-machine"],
+  "demoFiles": ["mock-client.ts"]
+}

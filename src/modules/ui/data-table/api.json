@@ -1,0 +1,160 @@
+[
+  {
+    "name": "Column",
+    "props": [
+      {
+        "name": "key",
+        "type": "string",
+        "required": true,
+        "description": "Identificador único de la columna."
+      },
+      {
+        "name": "header",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "render",
+        "type": "((row: T) => ReactNode)",
+        "required": false,
+        "description": "Contenido de la celda. Por defecto `row[key]`."
+      },
+      {
+        "name": "sortValue",
+        "type": "((row: T) => string | number | Date)",
+        "required": false,
+        "description": "Valor para ordenar; si falta, la columna no es ordenable."
+      },
+      {
+        "name": "align",
+        "type": "\"left\" | \"right\" | \"center\"",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "DataTableProps",
+    "props": [
+      {
+        "name": "columns",
+        "type": "readonly Column<T>[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "rows",
+        "type": "readonly T[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "getRowId",
+        "type": "(row: T) => string | number",
+        "required": true,
+        "description": "Clave estable de cada fila (nunca el índice)."
+      },
+      {
+        "name": "caption",
+        "type": "string",
+        "required": true,
+        "description": "Texto accesible que describe la tabla."
+      },
+      {
+        "name": "pageSize",
+        "type": "number",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "empty",
+        "type": "ReactNode",
+        "required": false,
+        "description": "Qué mostrar si no hay filas."
+      }
+    ]
+  },
+  {
+    "name": "PaginationProps",
+    "props": [
+      {
+        "name": "page",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "pageCount",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onPageChange",
+        "type": "(page: number) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "siblings",
+        "type": "number",
+        "required": false,
+        "description": "Cuántos números a cada lado de la página actual. Por defecto 1."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "description": "Nombre de la región para lectores de pantalla."
+      }
+    ]
+  },
+  {
+    "name": "UsePaginationResult",
+    "props": [
+      {
+        "name": "page",
+        "type": "number",
+        "required": true,
+        "description": "Página actual (empieza en 1)."
+      },
+      {
+        "name": "pageCount",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "setPage",
+        "type": "(page: number) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "T[]",
+        "required": true,
+        "description": "Elementos de la página actual."
+      },
+      {
+        "name": "from",
+        "type": "number",
+        "required": true,
+        "description": "Posición (1-based) del primer y último elemento visible; 0 si no hay datos."
+      },
+      {
+        "name": "to",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "total",
+        "type": "number",
+        "required": true,
+        "description": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "name": "floating-action-button",
+  "title": "Floating Action Button",
+  "category": "ui",
+  "description": "Botón flotante con badge animado y panel de acciones opcional; cierra con Escape o clic fuera.",
+  "status": "stable",
+  "source": "Hydra: PideTuSimFlotante.jsx (solo la parte de UI)",
+  "dependencies": ["react", "motion"],
+  "tags": ["fab", "badge", "animation", "a11y"]
+}

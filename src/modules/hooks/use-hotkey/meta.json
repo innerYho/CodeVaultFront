@@ -1,0 +1,10 @@
+{
+  "name": "use-hotkey",
+  "title": "useHotkey",
+  "category": "hooks",
+  "description": "Atajos de teclado globales con soporte Cmd/Ctrl, protección en campos de texto y formateo para mostrarlos.",
+  "status": "stable",
+  "source": "Heimdall: Dashboard.jsx y Hydra: MovilGestion.jsx (listeners de keydown sueltos)",
+  "dependencies": ["react"],
+  "tags": ["keyboard", "shortcuts", "a11y", "hook"]
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "name": "ExcelDateOptions",
+    "props": [
+      {
+        "name": "date1904",
+        "type": "boolean",
+        "required": false,
+        "description": "Libro con el sistema de fechas 1904 (Excel para Mac antiguo). Por defecto `false`."
+      }
+    ]
+  }
+]

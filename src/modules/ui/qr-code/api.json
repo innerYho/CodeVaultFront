@@ -1,0 +1,26 @@
+[
+  {
+    "name": "QrCodeProps",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Texto a codificar (p. ej. una URI `otpauth://`)."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "description": "Descripción para lectores de pantalla."
+      },
+      {
+        "name": "size",
+        "type": "number",
+        "required": false,
+        "default": "192",
+        "description": "Lado en píxeles."
+      }
+    ]
+  }
+]

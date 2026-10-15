@@ -1,0 +1,10 @@
+{
+  "name": "toast",
+  "title": "Toast",
+  "category": "ui",
+  "description": "Avisos efímeros que se pausan al pasar el cursor o enfocar, con barra de progreso, anuncio a lectores de pantalla y API por hook.",
+  "status": "stable",
+  "source": "ShortCuts: Swal2.txt (Toast.fire con SweetAlert2)",
+  "dependencies": ["react", "motion"],
+  "tags": ["feedback", "notification", "animation", "a11y"]
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "name": "OtpInputProps",
+    "props": [
+      {
+        "name": "value",
+        "type": "string",
+        "required": true,
+        "description": "Valor actual: solo dígitos, longitud ≤ `length`."
+      },
+      {
+        "name": "onChange",
+        "type": "(value: string) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onComplete",
+        "type": "((value: string) => void)",
+        "required": false,
+        "description": "Se llama una vez cuando el usuario completa todos los dígitos."
+      },
+      {
+        "name": "length",
+        "type": "number",
+        "required": false,
+        "default": "6",
+        "description": "Cantidad de casillas."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "invalid",
+        "type": "boolean",
+        "required": false,
+        "description": "Marca el campo como erróneo (borde rojo y `aria-invalid`)."
+      },
+      {
+        "name": "autoFocus",
+        "type": "boolean",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "\"Código de verificación\"",
+        "description": "Etiqueta accesible del grupo."
+      }
+    ]
+  }
+]

@@ -1,0 +1,135 @@
+[
+  {
+    "name": "CommandItem",
+    "props": [
+      {
+        "name": "hint",
+        "type": "string",
+        "required": false,
+        "description": "Texto a la derecha (p. ej. un estado)."
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keywords",
+        "type": "string[]",
+        "required": false,
+        "description": "Palabras extra por las que debe poder encontrarse."
+      },
+      {
+        "name": "group",
+        "type": "string",
+        "required": false,
+        "description": "Categoría; también es buscable (escribir \"guides\" filtra ese grupo)."
+      }
+    ]
+  },
+  {
+    "name": "CommandPaletteProps",
+    "props": [
+      {
+        "name": "items",
+        "type": "CommandItem[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "onSelect",
+        "type": "(item: CommandItem) => void",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "description": "Controlado: si lo pasas, tú decides cuándo está abierta."
+      },
+      {
+        "name": "onOpenChange",
+        "type": "((open: boolean) => void)",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "hotkey",
+        "type": "string | null",
+        "required": false,
+        "default": "\"mod+k\"",
+        "description": "Atajo que la abre. Pasa `null` para no registrar ninguno."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "\"Buscar…\"",
+        "description": ""
+      },
+      {
+        "name": "emptyText",
+        "type": "string",
+        "required": false,
+        "default": "\"Sin resultados\"",
+        "description": ""
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "\"Buscar\"",
+        "description": "Título accesible del diálogo."
+      }
+    ]
+  },
+  {
+    "name": "SearchableItem",
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "keywords",
+        "type": "string[]",
+        "required": false,
+        "description": "Palabras extra por las que debe poder encontrarse."
+      },
+      {
+        "name": "group",
+        "type": "string",
+        "required": false,
+        "description": "Categoría; también es buscable (escribir \"guides\" filtra ese grupo)."
+      }
+    ]
+  }
+]

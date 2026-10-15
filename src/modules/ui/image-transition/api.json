@@ -1,0 +1,83 @@
+[
+  {
+    "name": "ImageTransitionProps",
+    "props": [
+      {
+        "name": "images",
+        "type": "TransitionImage[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "effect",
+        "type": "TransitionEffect | \"random\"",
+        "required": false,
+        "default": "\"circle\"",
+        "description": "Efecto del cambio. `\"random\"` recorre todos en orden."
+      },
+      {
+        "name": "duration",
+        "type": "number",
+        "required": false,
+        "default": "1.2",
+        "description": "Duración de cada transición, en segundos."
+      },
+      {
+        "name": "interval",
+        "type": "number",
+        "required": false,
+        "default": "6000",
+        "description": "Milisegundos entre imágenes en reproducción automática. 0 la desactiva."
+      },
+      {
+        "name": "kenBurns",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Zoom lento sobre la imagen visible (efecto Ken Burns)."
+      },
+      {
+        "name": "controls",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Muestra flechas, puntos y botón de pausa."
+      },
+      {
+        "name": "index",
+        "type": "number",
+        "required": false,
+        "description": "Índice mostrado: si lo pasas, el componente es controlado."
+      },
+      {
+        "name": "onIndexChange",
+        "type": "((index: number) => void)",
+        "required": false,
+        "description": ""
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": "Clases del contenedor (por defecto, 16:9 con esquinas redondeadas)."
+      }
+    ]
+  },
+  {
+    "name": "TransitionImage",
+    "props": [
+      {
+        "name": "src",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "alt",
+        "type": "string",
+        "required": true,
+        "description": "Descripción de la imagen; se anuncia a lectores de pantalla."
+      }
+    ]
+  }
+]

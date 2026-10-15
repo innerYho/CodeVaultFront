@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Variante dark por clase (Tailwind 4 usa prefers-color-scheme por defecto). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Transición circular del tema: desactiva el fundido por defecto. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+body {
+  @apply bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100;
+}
+
+/* Shiki con doble tema: usa las variables --shiki-light / --shiki-dark. */
+.shiki-wrap pre {
+  margin: 0;
+  padding: 1rem;
+  background: transparent;
+}
+.shiki-wrap span {
+  color: var(--shiki-light);
+}
+.dark .shiki-wrap span {
+  color: var(--shiki-dark);
+}
