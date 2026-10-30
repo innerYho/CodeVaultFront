@@ -13,7 +13,7 @@ src/modules/<categoria>/<nombre>/
 ```
 
 - Carpetas y archivos de datos en `kebab-case`; componentes en `PascalCase.tsx`; hooks `useX.ts`.
-- Categorías actuales: `auth`, `hooks`, `lib`, `ui` (más `guides` para guías).
+- Categorías actuales: `auth`, `hooks`, `lib`, `notify`, `ui` (más `guides` y `ia` para guías). Al añadir una categoría, ponle etiqueta en `src/app/i18n.tsx` (`categories`); sin ella se muestra el identificador.
 
 ## Secciones obligatorias del README
 

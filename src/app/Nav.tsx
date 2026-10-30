@@ -1,13 +1,17 @@
 import { NavLink } from "react-router-dom";
+import { useLocale } from "./i18n";
 import { categories, modules } from "./registry";
 
 /** Navegación por categorías; se usa en la barra lateral (escritorio) y en el Drawer (móvil). */
 export function Nav({ onNavigate }: { onNavigate?: () => void }) {
+  const { categoryLabel } = useLocale();
   return (
     <>
       {categories.map((c) => (
-        <nav key={c} className="mb-6" aria-label={c}>
-          <h2 className="mb-2 text-xs font-semibold tracking-wider text-zinc-500 uppercase">{c}</h2>
+        <nav key={c} className="mb-6" aria-label={categoryLabel(c)}>
+          <h2 className="mb-2 text-xs font-semibold tracking-wider text-zinc-500 uppercase">
+            {categoryLabel(c)}
+          </h2>
           <ul className="space-y-1">
             {modules
               .filter((m) => m.category === c)

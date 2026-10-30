@@ -24,6 +24,18 @@
 | [useHotkey](src/modules/hooks/use-hotkey/README.md) | Atajos de teclado globales con soporte Cmd/Ctrl, protección en campos de texto y formateo para mostrarlos. | stable | react |
 | [useLocalStorage y useSessionStorage](src/modules/hooks/use-web-storage/README.md) | Estado persistido en localStorage (entre sesiones) o sessionStorage (por pestaña), sincronizado entre componentes, tolerante a fallos y compatible con SSR. | stable | react |
 
+## ia
+
+| Módulo | Descripción | Estado | Dependencias |
+|---|---|---|---|
+| [Agregar un modelo a tu proyecto](src/modules/ia/agregar-modelo/README.md) | Cómo conectar un modelo de lenguaje (local con Ollama o alojado) a una aplicación: elegir, aislarlo detrás de una interfaz, configurarlo por entorno, validar su salida y probarlo. | beta |  |
+| [Context7](src/modules/ia/context7/README.md) | Servidor MCP que entrega a la IA documentación actualizada y por versión de librerías, para evitar APIs inventadas u obsoletas. | stable |  |
+| [Harness de un agente](src/modules/ia/harness/README.md) | Qué es el harness que rodea a un modelo de lenguaje (bucle, herramientas, contexto, permisos, hooks) y cómo configurarlo en Claude Code con CLAUDE.md, settings.json, hooks y skills. | beta |  |
+| [MCP (Model Context Protocol)](src/modules/ia/mcp/README.md) | Protocolo abierto para conectar asistentes de IA con herramientas y datos externos: qué expone un servidor, cómo se añade a Claude Code y qué riesgos tiene. | stable |  |
+| [Ollama](src/modules/ia/ollama/README.md) | Ejecutar modelos de lenguaje en tu propia máquina: instalación, comandos, API local y compatibilidad con el formato de OpenAI. | stable |  |
+| [SDD (desarrollo guiado por especificación)](src/modules/ia/sdd/README.md) | Escribir primero la especificación (qué, plan, tareas) y derivar de ella el código y las pruebas; cuándo compensa al trabajar con un agente de IA y cuándo es exceso de proceso. | beta |  |
+| [Telegram con IA](src/modules/ia/telegram/README.md) | Hablar con tu sesión de Claude Code desde el móvil mediante un bot de Telegram (channels), y cuándo usar en su lugar los módulos de alertas del proyecto. | beta |  |
+
 ## lib
 
 | Módulo | Descripción | Estado | Dependencias |
@@ -51,5 +63,6 @@
 | [Parallax con scroll](src/modules/ui/parallax/README.md) | Efecto parallax ligado al scroll: capas que se mueven a distinta velocidad, con muelle opcional y movimiento reducido. | stable | react, motion |
 | [Escena de capas](src/modules/ui/parallax-scene/README.md) | Escena con profundidad: capas que reaccionan al scroll y al ratón según su distancia, más siluetas de montañas y pinos generadas por código. | stable | react, motion, ui/parallax |
 | [QR Code](src/modules/ui/qr-code/README.md) | Código QR como un único SVG, generado en el navegador (el contenido nunca sale a un servicio externo). | stable | react, uqr |
+| [Panel de scraping](src/modules/ui/scrape-panel/README.md) | Panel para ejecutar y observar un scraping en vivo: escenarios, barra de avance, páginas leídas con su motivo de fallo, reintentos y tabla de datos, sobre un flujo SSE. | beta | react |
 | [Theme Toggle](src/modules/ui/theme-toggle/README.md) | Botón día/noche con modo sistema, persistencia, sin destello inicial y transición circular. | stable | react, motion |
 | [Toast](src/modules/ui/toast/README.md) | Avisos efímeros que se pausan al pasar el cursor o enfocar, con barra de progreso, anuncio a lectores de pantalla y API por hook. | stable | react, motion |

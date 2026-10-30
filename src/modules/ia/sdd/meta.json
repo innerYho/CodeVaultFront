@@ -1,0 +1,11 @@
+{
+  "name": "sdd",
+  "title": "SDD (desarrollo guiado por especificación)",
+  "category": "ia",
+  "kind": "guide",
+  "description": "Escribir primero la especificación (qué, plan, tareas) y derivar de ella el código y las pruebas; cuándo compensa al trabajar con un agente de IA y cuándo es exceso de proceso.",
+  "status": "beta",
+  "source": "Práctica de este proyecto; sin referencia oficial única",
+  "dependencies": [],
+  "tags": ["ai", "sdd", "spec-driven", "agents", "process"]
+}

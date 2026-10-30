@@ -3,7 +3,9 @@ import { Navigate, NavLink, Route, Routes, useNavigate } from "react-router-dom"
 import { formatHotkey } from "../modules/hooks/use-hotkey";
 import { type CommandItem, CommandPalette } from "../modules/ui/command-palette";
 import { Drawer } from "../modules/ui/drawer";
-import { ThemeToggle } from "../modules/ui/theme-toggle";
+import { ThemeToggle, useTheme } from "../modules/ui/theme-toggle";
+import { useLocale } from "./i18n";
+import { LangToggle } from "./LangToggle";
 import { ModulePage } from "./ModulePage";
 import { Nav } from "./Nav";
 import { modules } from "./registry";
@@ -13,6 +15,8 @@ const HOTKEY = "mod+k";
 export function App() {
   const first = modules[0];
   const navigate = useNavigate();
+  const { t } = useLocale();
+  const { resolved } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -39,12 +43,12 @@ export function App() {
         <Nav />
       </aside>
 
-      <Drawer open={menuOpen} onClose={() => setMenuOpen(false)} label="Menú de navegación">
+      <Drawer open={menuOpen} onClose={() => setMenuOpen(false)} label={t.nav.menu}>
         <div className="mb-6 flex items-center justify-between">
           <span className="text-xl font-bold">CodeVault</span>
           <button
             type="button"
-            aria-label="Cerrar menú"
+            aria-label={t.nav.closeMenu}
             onClick={() => setMenuOpen(false)}
             className="rounded-md px-2 py-1 hover:bg-zinc-100 dark:hover:bg-zinc-900"
           >
@@ -59,9 +63,9 @@ export function App() {
         open={searchOpen}
         onOpenChange={setSearchOpen}
         hotkey={HOTKEY}
-        placeholder="Buscar módulos, guías, etiquetas…"
-        emptyText="Ningún módulo coincide"
-        label="Buscar en CodeVault"
+        placeholder={t.search.placeholder}
+        emptyText={t.search.empty}
+        label={t.search.label}
         onSelect={(item) => navigate(`/${item.id}`)}
       />
 
@@ -69,7 +73,7 @@ export function App() {
         <header className="mb-6 flex items-center gap-2">
           <button
             type="button"
-            aria-label="Abrir menú"
+            aria-label={t.nav.openMenu}
             onClick={() => setMenuOpen(true)}
             className="grid size-10 place-items-center rounded-full border border-zinc-300 md:hidden dark:border-zinc-700"
           >
@@ -91,12 +95,13 @@ export function App() {
             onClick={() => setSearchOpen(true)}
             className="ml-auto flex h-10 flex-1 items-center gap-2 rounded-full border border-zinc-300 px-4 text-sm text-zinc-500 hover:bg-zinc-50 md:max-w-xs md:flex-none dark:border-zinc-700 dark:hover:bg-zinc-900"
           >
-            <span className="flex-1 text-left">Buscar…</span>
+            <span className="flex-1 text-left">{t.search.button}</span>
             <kbd className="hidden rounded border border-zinc-300 px-1.5 text-xs sm:inline dark:border-zinc-700">
               {formatHotkey(HOTKEY)}
             </kbd>
           </button>
-          <ThemeToggle />
+          <LangToggle />
+          <ThemeToggle aria-label={resolved === "dark" ? t.theme.toLight : t.theme.toDark} />
         </header>
 
         <Routes>
@@ -105,7 +110,7 @@ export function App() {
             element={first ? <Navigate to={`/${first.category}/${first.name}`} replace /> : null}
           />
           <Route path="/:category/:name" element={<ModulePage />} />
-          <Route path="*" element={<p>No encontrado.</p>} />
+          <Route path="*" element={<p>{t.page.notFound}</p>} />
         </Routes>
       </main>
     </div>

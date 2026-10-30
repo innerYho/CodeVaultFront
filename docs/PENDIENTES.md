@@ -31,7 +31,7 @@ Estado: 🔴 bloquea la publicación · 🟡 mejora importante · 🟢 deseable.
 Criterio: en un portafolio pesa más una pieza que se pueda **probar en vivo** que muchos módulos pequeños. Orden sugerido: 1 → 8 → 5.
 
 ### Demos conectadas
-1. **Demo conectada front + back.** Registro, login con 2FA, sesión por cookie y un panel protegido de punta a punta. Es el gancho principal y cierra la prueba e2e. *L*
+1. **Demo conectada front + back.** Registro, login con 2FA, sesión por cookie y un panel protegido de punta a punta. Es el gancho principal y cierra la prueba e2e. *L* (Ya existe una primera pieza conectada: `ui/scrape-panel` ↔ `/scrape-demo` del back, sin autenticación.)
 2. **Tiempo real con SSE/WebSocket.** `useEventSource` con reconexión (front) + endpoint (back); panel que se actualiza en vivo. *M*
 3. **Subida de archivos con progreso.** Arrastrar y soltar, cola, cancelar y reintentar; validación de tipo y tamaño en el back. *L*
 
@@ -47,6 +47,10 @@ Criterio: en un portafolio pesa más una pieza que se pueda **probar en vivo** q
 10. **Validadores** (correo, teléfono, «sin espacio inicial» de los apuntes de ShortCuts) con la guía «cuándo regex y cuándo Zod». *S*
 11. **Guía de comandos de git** de ShortCuts (sin credenciales). *S*
 12. **Lista de municipios de Colombia** como dato reutilizable (existe en ShortCuts, `DepartamentosMunicipiosCol.js`; revisar la fuente: DANE) con un `Combobox` dependiente. *M*
+
+### Interfaz (ampliación)
+15. **Documentación bilingüe:** `README.en.md` por módulo y que el sitio muestre el del idioma elegido (hoy solo se traduce la interfaz). Son ~40 documentos; podría empezar por las guías. *L*
+16. **Más guías de IA** en `src/modules/ia/`: subagentes, *prompt injection* y permisos en profundidad. *M*
 
 ### Credibilidad del proyecto
 13. **Pruebas visuales de regresión** (capturas de cada demo comparadas en el CI): en este proyecto fallos reales solo salieron en un navegador de verdad. *L*

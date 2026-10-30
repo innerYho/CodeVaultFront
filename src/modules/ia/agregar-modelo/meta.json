@@ -1,0 +1,11 @@
+{
+  "name": "agregar-modelo",
+  "title": "Agregar un modelo a tu proyecto",
+  "category": "ia",
+  "kind": "guide",
+  "description": "Cómo conectar un modelo de lenguaje (local con Ollama o alojado) a una aplicación: elegir, aislarlo detrás de una interfaz, configurarlo por entorno, validar su salida y probarlo.",
+  "status": "beta",
+  "source": "Patrón de integración de este proyecto (módulos config/env y zod del back) y documentación de Ollama, verificada el 2026-10-21",
+  "dependencies": [],
+  "tags": ["ai", "llm", "integration", "ollama", "zod", "streaming"]
+}

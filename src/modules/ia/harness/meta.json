@@ -1,0 +1,11 @@
+{
+  "name": "harness",
+  "title": "Harness de un agente",
+  "category": "ia",
+  "kind": "guide",
+  "description": "Qué es el harness que rodea a un modelo de lenguaje (bucle, herramientas, contexto, permisos, hooks) y cómo configurarlo en Claude Code con CLAUDE.md, settings.json, hooks y skills.",
+  "status": "beta",
+  "source": "Documentación oficial de Claude Code (memoria, configuración, hooks y skills); pendiente de verificar contra la versión vigente",
+  "dependencies": [],
+  "tags": ["ai", "harness", "claude-code", "agents", "hooks", "claude-md"]
+}

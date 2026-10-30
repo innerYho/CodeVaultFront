@@ -1,0 +1,11 @@
+{
+  "name": "ollama",
+  "title": "Ollama",
+  "category": "ia",
+  "kind": "guide",
+  "description": "Ejecutar modelos de lenguaje en tu propia máquina: instalación, comandos, API local y compatibilidad con el formato de OpenAI.",
+  "status": "stable",
+  "source": "Documentación oficial de Ollama (docs.ollama.com) y repositorios ollama/ollama y ollama/ollama-js, verificados el 2026-10-21",
+  "dependencies": [],
+  "tags": ["ai", "ollama", "llm", "local", "self-hosted"]
+}

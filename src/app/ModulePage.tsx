@@ -1,9 +1,10 @@
 import { Suspense, useEffect, useState } from "react";
 import Markdown, { type Components } from "react-markdown";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
 import { ApiTable } from "./ApiTable";
 import { CodeBlock } from "./CodeBlock";
+import { useLocale } from "./i18n";
 import { modules } from "./registry";
 
 type Tab = "demo" | "docs" | "code";
@@ -11,6 +12,9 @@ type Tab = "demo" | "docs" | "code";
 const mdComponents: Components = {
   // Bloques ``` con lenguaje → CodeBlock; `código` en línea se queda como está.
   pre: ({ children }) => <>{children}</>,
+  // Enlaces internos (/categoria/modulo) por el router, para respetar el basename y no recargar.
+  a: ({ href, children }) =>
+    href?.startsWith("/") ? <Link to={href}>{children}</Link> : <a href={href}>{children}</a>,
   code: ({ className, children }) => {
     const lang = /language-(\w+)/.exec(className ?? "")?.[1];
     return lang ? (
@@ -23,6 +27,7 @@ const mdComponents: Components = {
 
 export function ModulePage() {
   const { category, name } = useParams();
+  const { t } = useLocale();
   const mod = modules.find((m) => m.category === category && m.name === name);
   const isGuide = mod?.kind === "guide";
   const [tab, setTab] = useState<Tab>("demo");
@@ -34,7 +39,8 @@ export function ModulePage() {
     mod?.loadFiles().then(setFiles);
   }, [mod]);
 
-  if (!mod) return <p>Módulo no encontrado.</p>;
+  if (!mod) return <p>{t.page.moduleNotFound}</p>;
+  const tabLabel: Record<Tab, string> = { demo: t.page.demo, docs: t.page.docs, code: t.page.code };
   const { Demo } = mod;
 
   return (
@@ -51,16 +57,16 @@ export function ModulePage() {
       </p>
 
       <div role="tablist" className="mt-6 flex gap-1 border-b border-zinc-200 dark:border-zinc-800">
-        {(isGuide ? (["docs"] as const) : (["demo", "docs", "code"] as const)).map((t) => (
+        {(isGuide ? (["docs"] as const) : (["demo", "docs", "code"] as const)).map((id) => (
           <button
-            key={t}
+            key={id}
             role="tab"
             type="button"
-            aria-selected={tab === t}
-            onClick={() => setTab(t)}
-            className={`-mb-px border-b-2 px-4 py-2 text-sm capitalize ${tab === t ? "border-indigo-600 font-medium" : "border-transparent text-zinc-500"}`}
+            aria-selected={tab === id}
+            onClick={() => setTab(id)}
+            className={`-mb-px border-b-2 px-4 py-2 text-sm capitalize ${tab === id ? "border-indigo-600 font-medium" : "border-transparent text-zinc-500"}`}
           >
-            {t === "code" ? "Código" : t === "docs" ? "Documentación" : "Demo"}
+            {tabLabel[id]}
           </button>
         ))}
       </div>
@@ -68,11 +74,11 @@ export function ModulePage() {
       <div className="mt-6">
         {tab === "demo" &&
           (Demo ? (
-            <Suspense fallback={<p>Cargando…</p>}>
+            <Suspense fallback={<p>{t.page.loading}</p>}>
               <Demo />
             </Suspense>
           ) : (
-            <p className="text-zinc-500">Este módulo no tiene demo.</p>
+            <p className="text-zinc-500">{t.page.noDemo}</p>
           ))}
         {tab === "docs" && (
           <div className="prose prose-zinc max-w-none dark:prose-invert">

@@ -1,0 +1,11 @@
+{
+  "name": "context7",
+  "title": "Context7",
+  "category": "ia",
+  "kind": "guide",
+  "description": "Servidor MCP que entrega a la IA documentación actualizada y por versión de librerías, para evitar APIs inventadas u obsoletas.",
+  "status": "stable",
+  "source": "Repositorio oficial de Context7 (upstash/context7), verificado el 2026-10-21",
+  "dependencies": [],
+  "tags": ["ai", "mcp", "context7", "docs", "claude-code"]
+}

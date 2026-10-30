@@ -1,0 +1,299 @@
+[
+  {
+    "name": "HttpScrapeClientOptions",
+    "props": [
+      {
+        "name": "baseUrl",
+        "type": "string",
+        "required": false,
+        "default": "\"/scrape-demo\"",
+        "description": "Prefijo de las rutas de la demo en el back."
+      },
+      {
+        "name": "fetch",
+        "type": "{ (input: RequestInfo | URL, init?: RequestInit): Promise<Response>; (input: string | URL | Request, init?: RequestInit): Promise<Response>; }",
+        "required": false,
+        "description": "Para pruebas o para usar otro `fetch`."
+      }
+    ]
+  },
+  {
+    "name": "MockScrapeClientOptions",
+    "props": [
+      {
+        "name": "delayMs",
+        "type": "number",
+        "required": false,
+        "default": "450",
+        "description": "Pausa entre eventos, en ms. Con `0` los eventos salen de seguido (pruebas)."
+      }
+    ]
+  },
+  {
+    "name": "PageIssue",
+    "props": [
+      {
+        "name": "index",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "field",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "message",
+        "type": "string",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "PageSummary",
+    "props": [
+      {
+        "name": "url",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "ok",
+        "type": "boolean",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "Record<string, unknown>[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "issues",
+        "type": "PageIssue[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "reason",
+        "type": "string",
+        "required": false,
+        "description": "Solo si `ok` es `false`."
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "RunAction",
+    "props": [
+      {
+        "name": "type",
+        "type": "\"failed\" | \"begin\" | \"event\" | \"cancelled\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "RunProgress",
+    "props": [
+      {
+        "name": "state",
+        "type": "\"done\" | \"cancelled\" | \"running\"",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "total",
+        "type": "number | null",
+        "required": true,
+        "description": "`null` si no se conoce de antemano (listados paginados)."
+      },
+      {
+        "name": "done",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "failed",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "items",
+        "type": "number",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "current",
+        "type": "string | null",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "RunState",
+    "props": [
+      {
+        "name": "status",
+        "type": "\"error\" | \"idle\" | \"done\" | \"cancelled\" | \"running\"",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "scenario",
+        "type": "string | null",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string | null",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "progress",
+        "type": "RunProgress | null",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "pages",
+        "type": "PageSummary[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "logs",
+        "type": "string[]",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "error",
+        "type": "string | null",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "ScenarioInfo",
+    "props": [
+      {
+        "name": "id",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "needsBrowser",
+        "type": "boolean",
+        "required": true,
+        "description": "Necesita Chrome/Chromium en el servidor."
+      },
+      {
+        "name": "available",
+        "type": "boolean",
+        "required": true,
+        "description": "`false` si el servidor no puede ejecutarlo (p. ej. no tiene Chrome)."
+      }
+    ]
+  },
+  {
+    "name": "ScrapeClient",
+    "props": [
+      {
+        "name": "scenarios",
+        "type": "(signal?: AbortSignal) => Promise<ScenarioInfo[]>",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "run",
+        "type": "(scenarioId: string, onEvent: (event: ScrapeEvent) => void, signal?: AbortSignal) => Promise<void>",
+        "required": true,
+        "description": "Ejecuta un escenario y entrega cada evento según llega. Resuelve cuando el flujo termina\n(o se aborta con `signal`) y rechaza con `ScrapeApiError` si no pudo empezar."
+      }
+    ]
+  },
+  {
+    "name": "ScrapeEvent",
+    "props": [
+      {
+        "name": "type",
+        "type": "\"error\" | \"done\" | \"progress\" | \"start\" | \"log\" | \"page\"",
+        "required": true,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "ScrapePanelProps",
+    "props": [
+      {
+        "name": "client",
+        "type": "ScrapeClient",
+        "required": true,
+        "description": ""
+      },
+      {
+        "name": "maxRows",
+        "type": "number",
+        "required": false,
+        "default": "50",
+        "description": "Filas máximas de la tabla de resultados."
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "name": "SseMessage",
+    "props": [
+      {
+        "name": "event",
+        "type": "string",
+        "required": true,
+        "description": "Nombre del evento (`event:`); `message` si no lo trae."
+      },
+      {
+        "name": "data",
+        "type": "string",
+        "required": true,
+        "description": ""
+      }
+    ]
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "name": "scrape-panel",
+  "title": "Panel de scraping",
+  "category": "ui",
+  "description": "Panel para ejecutar y observar un scraping en vivo: escenarios, barra de avance, páginas leídas con su motivo de fallo, reintentos y tabla de datos, sobre un flujo SSE.",
+  "status": "beta",
+  "source": "Demo conectada de scrape/http-scraper (back)",
+  "dependencies": ["react"],
+  "tags": ["scraping", "sse", "progress", "streaming", "a11y", "demo"],
+  "demoFiles": ["mock-client.ts"]
+}

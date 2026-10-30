@@ -1,0 +1,11 @@
+{
+  "name": "mcp",
+  "title": "MCP (Model Context Protocol)",
+  "category": "ia",
+  "kind": "guide",
+  "description": "Protocolo abierto para conectar asistentes de IA con herramientas y datos externos: qué expone un servidor, cómo se añade a Claude Code y qué riesgos tiene.",
+  "status": "stable",
+  "source": "Documentación oficial de Claude Code (MCP), verificada el 2026-10-21",
+  "dependencies": [],
+  "tags": ["ai", "mcp", "claude-code", "tools", "agents"]
+}

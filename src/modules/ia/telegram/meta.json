@@ -1,0 +1,11 @@
+{
+  "name": "telegram",
+  "title": "Telegram con IA",
+  "category": "ia",
+  "kind": "guide",
+  "description": "Hablar con tu sesión de Claude Code desde el móvil mediante un bot de Telegram (channels), y cuándo usar en su lugar los módulos de alertas del proyecto.",
+  "status": "beta",
+  "source": "Documentación oficial de Claude Code (channels, vista previa de investigación), verificada el 2026-10-21; ALERTA_PRA.md de Hydra",
+  "dependencies": [],
+  "tags": ["ai", "telegram", "channels", "claude-code", "bot", "notifications"]
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocale } from "./i18n";
 
 type Highlighter = Awaited<ReturnType<typeof load>>;
 let highlighterPromise: Promise<Highlighter> | null = null;
@@ -32,6 +33,7 @@ const ALIAS: Record<string, string> = {
 const KNOWN = new Set(["tsx", "typescript", "json", "css", "bash", "markdown"]);
 
 export function CodeBlock({ code, lang = "text" }: { code: string; lang?: string }) {
+  const { t } = useLocale();
   const [html, setHtml] = useState<string | null>(null);
   const resolved = ALIAS[lang] ?? lang;
 
@@ -61,7 +63,7 @@ export function CodeBlock({ code, lang = "text" }: { code: string; lang?: string
         onClick={() => navigator.clipboard?.writeText(code)}
         className="absolute top-2 right-2 z-10 rounded bg-zinc-200/80 px-2 py-0.5 text-xs opacity-0 transition-opacity group-hover:opacity-100 focus-visible:opacity-100 dark:bg-zinc-700/80"
       >
-        Copiar
+        {t.copy}
       </button>
       {html ? (
         <div
